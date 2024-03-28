@@ -1,5 +1,7 @@
+import 'package:floor/floor.dart';
 import 'package:news_app_clean_arch_2703/features/daily_news/domain/entities/article.dart';
 
+@Entity(tableName: 'article', primaryKeys: ['id'])
 class ArticleModel extends ArticleEntity {
   const ArticleModel({
     required super.id,
@@ -22,6 +24,19 @@ class ArticleModel extends ArticleEntity {
       urlToImage: json['urlToImage'] ?? '',
       publishedAt: json['publishedAt'] ?? '',
       content: json['content'] ?? '',
+    );
+  }
+
+  factory ArticleModel.fromEntity(ArticleEntity entity) {
+    return ArticleModel(
+      id: entity.id,
+      author: entity.author,
+      title: entity.title,
+      description: entity.description,
+      url: entity.url,
+      urlToImage: entity.urlToImage,
+      publishedAt: entity.publishedAt,
+      content: entity.content,
     );
   }
 }

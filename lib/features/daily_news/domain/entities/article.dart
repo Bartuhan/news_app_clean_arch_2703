@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
+import 'package:floor/floor.dart';
 
 class ArticleEntity extends Equatable {
+  @PrimaryKey()
   final int? id;
   final String? author;
   final String? title;
